@@ -11,7 +11,7 @@ class NewsTile extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.grey[300],
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -19,14 +19,14 @@ class NewsTile extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(article.image ?? "https://st4.depositphotos.com/1005563/25369/i/450/depositphotos_253697550-stock-photo-award-winning-championship-concept-trophy.jpg",
+              child: Image.network(article.image ?? "https://thumbs.dreamstime.com/b/article-article-background-breaking-news-business-close-up-communication-113321240.jpg",
                 height: 200,
                 width: double.infinity,
                 fit:  BoxFit.cover,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
               child: Column(
                 children: [
                   Text(
@@ -36,14 +36,15 @@ class NewsTile extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 24,
                       color: Colors.black87,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
+                  SizedBox(height: 8,),
                   Text(
                     article.subTitle ?? "",
                     maxLines: 2,
                     style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 14,
                     ),
                   ),
               ]),

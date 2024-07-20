@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/widgets/appBar_related/main_app_bar.dart';
-import '../widgets/news_related/news_list_view.dart';
+import 'package:news_app/widgets/categories_related/categories_list_view.dart';
+import '../widgets/news_related/news_list_view_builder.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -10,14 +11,13 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: MainAppBar(),
       body:
-          // Container(
-          //   color: Colors.red,
-          // ),
-      // Column(children: [
-      //   CategoriesListView(),
-        NewsListView(),
-      // ]
-    // )
-  );
+      CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(child: CategoriesListView()),
+          const NewsListViewBuilder(category: "general"),
+        ]
+      )
+    );
   }
 }
